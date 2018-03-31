@@ -64,12 +64,13 @@ $(document).ready(function() {
 
     const reset = function() {  
         yourTotalScore = 0;
+        $("#score").html(yourTotalScore);
         blue = 0;
         green = 0;
         yellow = 0;
         red = 0;
-        initialCrystalNum();
         computerNum = 0;
-        generateRandomNum();
+        initialCrystalNum();
+        $("#randomNum").html(computerNum += generateRandomNum());
     }
 });
