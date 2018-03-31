@@ -8,7 +8,9 @@ $(document).ready(function() {
     let green = 0;
     let red = 0;
     let computerNum = 0;
-
+    // displaying initial score of 0
+    $("#score").html(yourTotalScore);
+ 
     const generateRandomNum = function() {
         let random = Math.floor(Math.random() * 100 + 19);
         computerNum += random;
@@ -33,6 +35,7 @@ $(document).ready(function() {
 
     initialCrystalNum();
 
+    // assigning value of button clicked to correct crystal. 
     $("button").on("click", function() {
         if(this.id === "blue") {
             yourTotalScore += blue;
@@ -61,7 +64,8 @@ $(document).ready(function() {
             reset();
         }
     }
-
+    
+    // resets all values back to 0 for user to play again.
     const reset = function() {  
         yourTotalScore = 0;
         $("#score").html(yourTotalScore);
