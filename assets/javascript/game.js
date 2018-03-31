@@ -1,12 +1,8 @@
 $(document).ready(function() { 
     console.log("DOM fully loaded and parsed");
-    let wins = $("#wins");
-    let losses = $("#loss");
     let yourWins = 0;
     let yourLosses = 0;
     let yourTotalScore = 0;
-    $("#win").html(yourWins);
-    $("#loss").html(yourLosses);
     let blue = 0;
     let yellow = 0;
     let green = 0;
@@ -23,15 +19,19 @@ $(document).ready(function() {
     $("#randomNum").html(generateRandomNum());
 
     const generateCrystalNum = function() {
-        let random = Math.floor(Math.random() * 12);
+        let random = Math.floor(Math.random() * 12 + 1);
         return random;
     }
 
     // generating random numbers for each crystal and assigning their values to declared variables above
-    blue += generateCrystalNum();
-    red += generateCrystalNum();
-    green += generateCrystalNum();
-    yellow += generateCrystalNum();
+    const initialCrystalNum = function() {
+        blue += generateCrystalNum();
+        red += generateCrystalNum();
+        green += generateCrystalNum();
+        yellow += generateCrystalNum();
+    }
+
+    initialCrystalNum();
 
     $("button").on("click", function() {
         if(this.id === "blue") {
@@ -45,15 +45,31 @@ $(document).ready(function() {
         }
         // setting yourTotalScore equal to the value of any button pressed.
         $("#score").html(yourTotalScore);
+        winOrLose();
     });
 
-    const winOrLose() {
+    const winOrLose = function() {
         if(yourTotalScore === computerNum) {
             yourWins += 1;
-            alert("You win!");   
+            $("#win").html(yourWins);
+            alert("You win!");
+            reset();   
         } else if(yourTotalScore > computerNum) {
-            yourlosses += 1;
-            alert("You're a fucking loser!")
+            yourLosses += 1;
+            $("#loss").html(yourLosses);
+            alert("You lose.");
+            reset();
         }
+    }
+
+    const reset = function() {  
+        yourTotalScore = 0;
+        blue = 0;
+        green = 0;
+        yellow = 0;
+        red = 0;
+        initialCrystalNum();
+        computerNum = 0;
+        generateRandomNum();
     }
 });
