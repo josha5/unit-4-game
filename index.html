@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="page-header">
-      <h1 class="text-center">Crystals Collector <br><small>Collector those crystals</small></h1>
+      <h1 class="text-center">Crystals Collector</h1>
     </div>
     <div class="row">
         <div class="col-md-12" id="instructions">
@@ -26,13 +26,16 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6" id="randomNumDiv">
+        <div class="col-md-4" id="randomNumDiv">
             <p>Number to match: <div id="randomNum"></div></p>
         </div>
-        <div class="col-md-6" id="winLoss">
+        <div class="col-md-4" id="winLoss">
             <p>Wins:<span id="win"></span></p>
             <p>Losses:<span id="loss"></span></p>
         </div>
+            <div class="col-md-4" id="totalScore">
+                <p>Your total score is: <div id="score"></div></p>
+            </div>
     </div>
     <div class="row" id="crystals">
         <div class="col-md-3">
@@ -46,11 +49,6 @@
         </div>
         <div class="col-md-3">
             <button id="red"><img src="assets/images/red.png"></button>
-        </div>
-    </div>
-    <div class="row" id="totalScore">
-        <div class="col-md-12">
-            <p>Your total score is: <div id="score"></div></p>
         </div>
     </div>
 </body>
